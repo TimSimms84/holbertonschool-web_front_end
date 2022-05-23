@@ -178,6 +178,12 @@ ul.row {
 	padding: var(--footer-padding);
 }
 
+.footer-copyright {
+	margin: 0;
+	font-size: var(--font-size-small);
+	color: var(--text-color);
+}
+
 ul.footer {
 	text-align: right;
 }
