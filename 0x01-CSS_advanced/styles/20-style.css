@@ -103,7 +103,7 @@ a:active {
 .row::after {
 	content: "";
 	display: table;
-	clear: left right;
+	clear: both;
 }
 
 body {
