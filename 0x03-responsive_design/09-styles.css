@@ -461,6 +461,20 @@
   .social-link > svg {
     fill: var(--text-color);
   }
+
+  @media (max-width: 767px) {
+    :root {
+      --footer-padding: 5rem 2rem 1rem;
+    }
+
+    .footer .social.nav, .footer .footer-nav {
+      text-align: center;
+    }
+
+    .footer .social.nav li + li, .footer .footer-nav li + li {
+      padding-left: 2rem;
+    }
+  }
   
   /*** 3. SECTION ***/
   
