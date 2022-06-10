@@ -648,8 +648,9 @@
   }
 
   /*** FORM ***/
-/* Comment section
-    ============================= */
+
+  /* Comment section
+	  ============================= */
 
     .post-comments {
       width: 80%;
@@ -663,6 +664,7 @@
   
     /* Basic form
       ============================= */
+  
     form {
       display: flex;
       flex-direction: column;
@@ -674,10 +676,10 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      border: none;
+      border: 0;
       padding: 0 0 2rem;
     }
-    
+  
     label {
       cursor: pointer;
       display: block;
@@ -685,3 +687,4 @@
       font-size: 1.4rem;
       padding: 0 0 .5rem;
     }
+  
