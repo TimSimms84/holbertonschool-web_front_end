@@ -1,3 +1,7 @@
+/* Reuse the function countPrimeNumbers from 9-prime.js (copy/paste)
+
+Execute the function countPrimeNumbers 100 times
+Log to the console the time in milliseconds to execute the function 100 times*/
 function countPrimeNumbers() {
   let prime_numbers = [];
   for (let i = 2; i <= 100; i++) {

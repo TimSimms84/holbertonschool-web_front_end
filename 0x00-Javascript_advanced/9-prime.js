@@ -1,14 +1,18 @@
+/* Write a function named countPrimeNumbers:
+
+It will return the number of prime numbers from 2 to 100
+Log to the console the time in milliseconds to execute the function in this format: Execution time of printing countPrimeNumbers was <time used> milliseconds.*/
 function countPrimeNumbers() {
   let prime_numbers = [];
   for (let i = 2; i <= 100; i++) {
-      let prime = true;
-      for (let n = 2; n < i; n++) {
-          if (i % n === 0) {
-              prime = false;
-          }
+    let prime = true;
+    for (let n = 2; n < i; n++) {
+      if (i % n === 0) {
+        prime = false;
       }
-      if (prime) 
-        prime_numbers.push(i);
+    }
+    if (prime)
+      prime_numbers.push(i);
   }
   return prime_numbers;
 }
