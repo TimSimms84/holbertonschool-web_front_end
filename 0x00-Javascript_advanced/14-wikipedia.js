@@ -18,7 +18,9 @@ function createElement(data) {
 
 function queryWikipedia(callback) {
   let myReq = new XMLHttpRequest;
-  myReq.open('GET', 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow&origin=*');
+  method = 'GET'
+  url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow&origin=*'
+  myReq.open(method, url);
   myReq.send();
   myReq.onload = function () {
     json = JSON.parse(myReq.response);
