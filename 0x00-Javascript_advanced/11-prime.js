@@ -3,18 +3,18 @@
 Log to the console the time in milleseconds to execute the function 100 times
 Find a way to actually do most of the calculation at the end of the execution stack */
 function countPrimeNumbers() {
-  let prime_numbers = [];
+  let prime_count = 0;
   for (let i = 2; i <= 100; i++) {
-      let prime = true;
-      for (let n = 2; n < i; n++) {
-          if (i % n === 0) {
-              prime = false;
-          }
+    let prime = true;
+    for (let n = 2; n < i; n++) {
+      if (i % n === 0) {
+        prime = false;
       }
-      if (prime)
-        prime_numbers.push(i);
+    }
+    if (prime)
+      prime_count += 1;
   }
-  return prime_numbers;
+  return prime_count;
 }
 
 
