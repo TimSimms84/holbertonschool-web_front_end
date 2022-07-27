@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Task 10</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+
+</head>
+
+<body>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            listPosts();
+            buildForm();
+        });
+        
+        
+        function buildForm() {
+            $('body').append(
+                $('<form/>').append([
+                    $('<div/>').append([
+                        $('<label/>', { for: 'author', text: 'Author' }),
+                        $('<input/>', { type: 'text', id: 'author' })
+                    ]),
+                    $('<div/>').append([
+                        $('<label/>', { for: 'title', text: 'Title' }),
+                        $('<textarea/>', { id: 'title' })
+                    ]),
+                    $('<input/>', {
+                        type: 'submit',
+                        on: {
+                            click: function () {
+                                sendForm();
+                            }
+                        }
+                    })
+                ])
+            )
+        }
+
+        function sendForm() {
+            $("form").after("About to send the query to the API");
+
+            let data = {
+                "title": $("input").val(),
+                "author": $("textarea").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/posts",
+                data: data,
+                success: function (data) {
+                    addPostRow(data);
+                },
+                error: function (error) {
+                    alert("Error sending the API query");
+                    console.log(error);
+                }
+            });
+        }
+
+
+        function addPostRow(data) {
+				$("body").after(
+					`<p id="row-ID"><span>(delete)</span><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
+
+					$("span").first().click(function () {
+						deletePost(data.id);
+					});
+			}
+
+            function deletePost(id) {
+				$.ajax({
+					type: "DELETE",
+					url: "http://localhost:3000/posts/" + id,
+					success: function(data) {
+						$("#row-ID").remove();
+					},
+					error: function(error) {
+						alert("Post was not deleted");
+					}
+				});
+			}
+
+        function listPosts() {
+            $.get("http://localhost:3000/posts", function (data) {
+                data.forEach(addPostRow);
+            }
+            )
+                .fail(function () {
+                    alert("Server error");
+                });
+        }
+
+    </script>
+</body>
+
+</html>
