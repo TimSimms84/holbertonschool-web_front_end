@@ -31,7 +31,12 @@
         }
 
         function showCookies() {
+            let oldCookie = document.getElementById("shown-cookies");
+            if (oldCookie) {
+                oldCookie.remove();
+            }
             let pTag = document.createElement("p");
+            pTag.setAttribute('id','shown-cookies')
             pTag.innerText = `Email: ${getCookie('email')} - Firstname: ${getCookie('firstname')}`;
             document.body.appendChild(pTag);
         }

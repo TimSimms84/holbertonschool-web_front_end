@@ -31,12 +31,17 @@
         }
 
         function showCookies() {
+            let oldCookie = document.getElementById("shown-cookies");
+            if (oldCookie) {
+                oldCookie.remove();
+            }
             let val = []
             let keyVals = document.cookie.split(";");
             for (let i in keyVals) {
                 val.push(keyVals[i].split("=")[1]);
             }
             let pTag = document.createElement("p");
+            pTag.setAttribute('id','shown-cookies')
             pTag.innerText = `Cookies: ${val[0]}, ${val[1]}`;
             document.body.appendChild(pTag);
         }
