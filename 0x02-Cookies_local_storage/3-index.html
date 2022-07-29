@@ -42,6 +42,7 @@
             );
             document.cookie = `firstname=${document.getElementById('firstname').value}; expires=${expires.toGMTString()}`;
             document.cookie = `email=${document.getElementById('email').value}; expires=${expires.toGMTString()}`;
+            showWelcomeMessageOrForm();
         }
 
         function showCookies() {
